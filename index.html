@@ -1,1 +1,103 @@
-123
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 我们都是西郊中学2014级的学生，认识你四年了.</span><br />
+				<span class="space"/><span class="comments">*所以我想写一些东西来纪念或是庆祝我们的四年时光.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"张博华"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"李文玉"</span>);<br />
+				<span class="comments">// May 2, 2014, 我第一次遇见了你. </span><br />
+				i.love(u);<br />
+				<span class="comments">// Oct 13,2014,你成为我的女朋友.</span><br />
+				u.accepted();<br />
+				<span class="comments">//从那天起，我每天每时每刻都会想你 .</span><br />
+				i.miss(u);<br />
+				<span class="comments">//并且，我承诺用心照顾你一辈子.</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">//即使你说过可能不喜欢我，不一定会和我走到最后.</span><br />
+				<span class="comments">// 但是，我还是用我所有的关心与呵护赢回了你的心,希望有一天能把你娶回家.</span><br />
+				<span class="keyword">boolean</span> isGraduate = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (isGraduate) {<br />
+				<span class="placeholder"/>i.waitFor(u);<br />
+				<span class="placeholder"/><span class="comments">//你毕业的时候，我还没有，没能陪你一起上班，下班。</span><br />
+				<span class="placeholder"/><span class="comments">// 毕业之后，我一定要把你留在我身边，不让你离开我，一天也不可以.</span><br />
+				<span class="placeholder"/>isGraduate = i.GraduateOver();<br />
+				}<br />
+				<span class="comments">//几年之后，一定为你举办一个最美的婚礼，让你成为最幸福的人。
+				老婆，我爱你。</span><br />
+				i.marry(u);<br />
+				i.liveHappilyWith(u);<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Wenyu, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- Bohua</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br />
+			Copyright © 2018 <a href='http://hackerzhou.me'>Zhangbohua</a> 2014-2018
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2014, 10, 13);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
